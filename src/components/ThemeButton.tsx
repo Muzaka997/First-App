@@ -1,11 +1,10 @@
 import { useThemeContext } from "../theme/useThemeContext";
+import { ToggleButton } from "./ThemeButton.styled";
 
 export default function ThemeButton() {
   const { darkMode, toggleTheme } = useThemeContext();
 
   return (
-    <button onClick={toggleTheme}>
-      Switch to {darkMode ? "Light" : "Dark"} Mode
-    </button>
+    <ToggleButton onClick={toggleTheme}>{darkMode ? "☀️" : "🌑"}</ToggleButton>
   );
 }

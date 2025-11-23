@@ -1,22 +1,21 @@
 import styled from "styled-components";
-import "styled-components";
 
-export const AppWrapper = styled.div`
-  color: #222;
+export const AppWrapper = styled.div<{ darkMode: boolean }>`
+  background: ${(p) => (p.darkMode ? "#000" : "#fff")};
+  color: ${(p) => (p.darkMode ? "#eee" : "#222")};
   font-family: system-ui, sans-serif;
-  margin: 0;
-  padding: 0;
+  min-height: 100vh;
 `;
 
-export const Header = styled.header`
-  color: white;
-  background: #222;
+export const Header = styled.header<{ darkMode: boolean }>`
+  background: ${(p) => (p.darkMode ? "#111" : "#fff")};
+  color: ${(p) => (p.darkMode ? "#fff" : "#111")};
   padding: 1rem 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid ${(p) => (p.darkMode ? "#333" : "#eee")};
 `;
 
 export const Logo = styled.h1`
@@ -29,21 +28,22 @@ export const Nav = styled.nav`
   gap: 1.5rem;
 `;
 
-export const NavLink = styled.a`
-  color: white;
+export const NavLink = styled.a<{ darkMode: boolean }>`
+  color: ${(p) => (p.darkMode ? "#fff" : "black")};
   text-decoration: none;
   font-weight: 500;
   transition: 0.2s;
 
   &:hover {
-    color: #000;
+    color: ${(p) => (p.darkMode ? "#fff" : "#000")};
   }
 `;
 
-export const Hero = styled.section`
+export const Hero = styled.section<{ darkMode: boolean }>`
   text-align: center;
   padding: 4rem 1rem;
-  background: #f7f7f7;
+  background: ${(p) => (p.darkMode ? "#111" : "#f7f7f7")};
+  color: ${(p) => (p.darkMode ? "#eee" : "#222")};
 
   h2 {
     font-size: 2.5rem;
@@ -51,25 +51,25 @@ export const Hero = styled.section`
   }
 `;
 
-export const CTAButton = styled.button`
+export const CTAButton = styled.button<{ darkMode: boolean }>`
   margin-top: 1.5rem;
   padding: 0.8rem 1.6rem;
   font-size: 1rem;
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  background: #333;
+  background: ${(p) => (p.darkMode ? "#444" : "#333")};
   color: white;
   transition: 0.2s;
 
   &:hover {
-    background: #000;
+    background: ${(p) => (p.darkMode ? "#222" : "#000")};
   }
 `;
 
-export const Features = styled.section`
-  color: white;
-  background: #333;
+export const Features = styled.section<{ darkMode: boolean }>`
+  background: ${(p) => (p.darkMode ? "#222" : "#333")};
+  color: ${(p) => (p.darkMode ? "#ddd" : "white")};
   padding: 3rem 2rem;
   max-width: 800px;
   margin: 2rem auto;
@@ -87,11 +87,11 @@ export const Features = styled.section`
   }
 `;
 
-export const Footer = styled.footer`
+export const Footer = styled.footer<{ darkMode: boolean }>`
   text-align: center;
   padding: 2rem;
   margin-top: 3rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid ${(p) => (p.darkMode ? "#333" : "#eee")};
   font-size: 0.9rem;
-  color: #666;
+  color: ${(p) => (p.darkMode ? "#aaa" : "#666")};
 `;
